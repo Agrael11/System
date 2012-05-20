@@ -2,7 +2,6 @@
 
 #define COLOR ((backgroundColor << 4 | textColor) << 8)
 
-
 OStream::OStream() {
 	char cardType = (*(unsigned short*) 0x410 & 0x30);
 	
@@ -114,27 +113,27 @@ void OStream::SetBackgroundColor(Colors color) {
 }
 
 
-
-
 OStream& OStream::operator <<(const char *str) {
 	write((char *)str);
 	return *this;
 }
+
 
 OStream& OStream::operator <<(char *str) {
 	write(str);
 	return *this;
 }
 
+
 OStream& OStream::operator <<(char str) {
 	put(str);
 	return *this;
 }
 
+
 OStream& OStream::operator <<(unsigned char str) {
 	put((char)str);
 	return *this;
 }
-
 
 #undef COLOR
